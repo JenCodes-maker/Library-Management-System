@@ -4,51 +4,47 @@ import API from "../api/api";
 
 const Home = () => {
   const [stats, setStats] = useState({
-  totalBooks: 0,
-  totalMembers: 0,
-});
-const fetchAnalytics = async () => {
-  try {
-    const res = await API.get("/analytics");
+    totalBooks: 0,
+    totalMembers: 0,
+    issuedBooks: 0,
+    returnedBooks: 0,
+  });
+  const fetchAnalytics = async () => {
+    try {
+      const res = await API.get("/analytics");
 
-    setStats(res.data);
-  } catch (error) {
-    console.log(error);
-  }
-};
+      setStats(res.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
-useEffect(() => {
-  fetchAnalytics();
-}, []);
+  useEffect(() => {
+    fetchAnalytics();
+  }, []);
   return (
     <DashboardLayout>
-      <h1 className="text-4xl font-bold mb-8">
-        Dashboard
-      </h1>
+      <h1 className="text-4xl font-bold mb-8">Dashboard</h1>
 
-      <div className="grid grid-cols-4 gap-6">
-        <div className="bg-white p-6 rounded-xl shadow">
-          <h3 className="text-gray-500">Total Books</h3>
-          <p className="text-3xl font-bold mt-2">
-  {stats.totalBooks}
-</p>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="bg-blue-500 text-white p-6 rounded-xl shadow">
+          <h3 className="text-lg">📚 Total Books</h3>
+          <p className="text-3xl font-bold mt-2">{stats.totalBooks}</p>
         </div>
 
-        <div className="bg-white p-6 rounded-xl shadow">
-          <h3 className="text-gray-500">Members</h3>
-          <p className="text-3xl font-bold mt-2">
-  {stats.totalMembers}
-</p>
+        <div className="bg-green-500 text-white p-6 rounded-xl shadow">
+          <h3 className="text-lg">👥 Total Members</h3>
+          <p className="text-3xl font-bold mt-2">{stats.totalMembers}</p>
         </div>
 
-        <div className="bg-white p-6 rounded-xl shadow">
-          <h3 className="text-gray-500">Books Issued</h3>
-          <p className="text-3xl font-bold mt-2">28</p>
+        <div className="bg-yellow-500 text-white p-6 rounded-xl shadow">
+          <h3 className="text-lg">📤 Issued Books</h3>
+          <p className="text-3xl font-bold mt-2">{stats.issuedBooks}</p>
         </div>
 
-        <div className="bg-white p-6 rounded-xl shadow">
-          <h3 className="text-gray-500">Overdue</h3>
-          <p className="text-3xl font-bold mt-2 text-red-500">4</p>
+        <div className="bg-purple-500 text-white p-6 rounded-xl shadow">
+          <h3 className="text-lg">🔄 Returned Books</h3>
+          <p className="text-3xl font-bold mt-2">{stats.returnedBooks}</p>
         </div>
       </div>
     </DashboardLayout>
