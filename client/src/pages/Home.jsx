@@ -1,4 +1,4 @@
-import DashboardLayout from "../components/layout/DashboardLayout";
+import DashboardLayout from "../components/Layout/DashboardLayout";
 import { useEffect, useState } from "react";
 import API from "../api/api";
 
