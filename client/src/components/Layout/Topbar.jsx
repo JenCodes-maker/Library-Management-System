@@ -1,13 +1,14 @@
 const Topbar = () => {
-  return (
-    <div className="bg-white shadow p-4 flex justify-between">
-      <h2 className="font-semibold text-lg">
-        Library Management System
-      </h2>
+  const libraryName =
+    localStorage.getItem("libraryName") || "Library Management System";
 
-      <div>
-        Admin
-      </div>
+  const adminName = localStorage.getItem("adminName") || "Admin";
+
+  return (
+    <div className="bg-white shadow-md p-4 flex justify-between items-center">
+      <h2 className="font-semibold text-lg">{libraryName}</h2>
+
+      <div className="font-semibold text-gray-700">👤 {adminName}</div>
     </div>
   );
 };

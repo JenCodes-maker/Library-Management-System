@@ -18,15 +18,39 @@ const getAnalytics = async (req, res) => {
         status: "Returned",
       });
 
+    const booksByCategory =
+  await Book.aggregate([
+    {
+      $group: {
+        _id: "$category",
+        count: { $sum: 1 },
+      },
+    },
+  ]);
+
+    const recentTransactions =
+  await Transaction.find()
+    .populate("memberId", "name")
+    .populate("bookId", "title")
+    .sort({ createdAt: -1 })
+    .limit(5);
+
     res.status(200).json({
-      totalBooks,
-      totalMembers,
-      issuedBooks,
-      returnedBooks,
-    });
+  totalBooks,
+  totalMembers,
+  issuedBooks,
+  returnedBooks,
+  booksByCategory,
+  recentTransactions,
+});
+
   } catch (error) {
     res.status(500).json({
       message: error.message,
     });
   }
+};
+
+module.exports = {
+  getAnalytics,
 };

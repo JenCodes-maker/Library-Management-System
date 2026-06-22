@@ -19,7 +19,7 @@ const Sidebar = () => {
   <li>
     <NavLink
       to="/"
-      className="flex items-center gap-3 p-3 rounded-lg hover:bg-slate-800"
+      className="flex items-center gap-3 p-3 rounded-lg hover:bg-blue-900 rounded-lg transition"
     >
       <FaHome />
       Dashboard
@@ -29,7 +29,7 @@ const Sidebar = () => {
   <li>
     <NavLink
       to="/books"
-      className="flex items-center gap-3 p-3 rounded-lg hover:bg-slate-800"
+      className="flex items-center gap-3 p-3 rounded-lg hover:bg-blue-900 rounded-lg transition"
     >
       <FaBook />
       Books
@@ -39,7 +39,7 @@ const Sidebar = () => {
   <li>
     <NavLink
       to="/members"
-      className="flex items-center gap-3 p-3 rounded-lg hover:bg-slate-800"
+      className="flex items-center gap-3 p-3 rounded-lg hover:bg-blue-900 rounded-lg transition"
     >
       <FaUsers />
       Members
@@ -49,7 +49,7 @@ const Sidebar = () => {
   <li>
     <NavLink
       to="/issue-return"
-      className="flex items-center gap-3 p-3 rounded-lg hover:bg-slate-800"
+      className="flex items-center gap-3 p-3 rounded-lg hover:bg-blue-900 rounded-lg transition"
     >
       <FaExchangeAlt />
       Issue / Return
@@ -59,7 +59,7 @@ const Sidebar = () => {
   <li>
     <NavLink
       to="/analytics"
-      className="flex items-center gap-3 p-3 rounded-lg hover:bg-slate-800"
+      className="flex items-center gap-3 p-3 rounded-lg hover:bg-blue-900 rounded-lg transition"
     >
       <FaChartBar />
       Analytics
@@ -69,7 +69,7 @@ const Sidebar = () => {
   <li>
     <NavLink
       to="/settings"
-      className="flex items-center gap-3 p-3 rounded-lg hover:bg-slate-800"
+      className="flex items-center gap-3 p-3 rounded-lg hover:bg-blue-900 rounded-lg transition"
     >
       <FaCog />
       Settings

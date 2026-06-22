@@ -139,13 +139,17 @@ const IssueReturn = () => {
                     {new Date(transaction.dueDate).toLocaleDateString()}
                   </td>
                   <td className="border p-2">
-                    {transaction.status === "Issued" && (
+                    {transaction.status === "Issued" ? (
                       <button
                         onClick={() => handleReturn(transaction._id)}
-                        className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700"
+                        className="bg-green-600 text-white px-4 py-2 rounded"
                       >
                         Return Book
                       </button>
+                    ) : (
+                      <span className="text-green-600 font-semibold">
+                        ✓ Returned
+                      </span>
                     )}
                   </td>
                 </tr>
